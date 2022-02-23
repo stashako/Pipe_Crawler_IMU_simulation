@@ -4,19 +4,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(IMU_MULTIPLEXER VERSION 1.0)
 
+
 add_library(multiplexerlib STATIC lib/i2c_multiplexer.c)
 target_include_directories(multiplexerlib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lib/include)
 
 add_library(imulib STATIC lib/i2c_bno055.c)
 target_include_directories(imulib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lib/include)
 
+add_library(classlib STATIC lib/i2c_imu.cpp)
+target_include_directories(classlib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lib/include)
+target_link_libraries(classlib PUBLIC multiplexerlib imulib)
 
-find_package(OpenGL REQUIRED)
-find_package(GLUT REQUIRED)
-include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS})
+add_library(senderlib STATIC lib/sender.cpp)
+target_include_directories(senderlib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lib/include)
+target_link_libraries(senderlib PUBLIC pthread boost_system)
 
-add_executable(client_IMU client_IMU.cpp)
-target_link_libraries(client_IMU PUBLIC pthread boost_system multiplexerlib imulib ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES})
-
+add_executable(main main.cpp)
+target_link_libraries(main PUBLIC pthread boost_system classlib senderlib) 
 
 

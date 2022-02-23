@@ -1,4 +1,4 @@
-
+#pragma once
 #ifdef __cplusplus
 extern "C"
 {
@@ -6,8 +6,8 @@ extern "C"
 
 #define I2CBUS "/dev/i2c-1"
 
-   int i2cfd_;   // I2C file descriptor
-   int verbose_; // debug flag, 0 = normal, 1 = debug mode
+   static int i2cfd_;   // I2C file descriptor
+   static int verbose_; // debug flag, 0 = normal, 1 = debug mode
 
    typedef enum
    {

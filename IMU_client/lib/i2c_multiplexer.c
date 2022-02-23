@@ -1,3 +1,15 @@
+/* ------------------------------------------------------------ *
+ * file:        i2c_bno055.c                                    *
+ * purpose:     Extract sensor data from Bosch BNO055 modules.  *
+ *              Functions for I2C bus communication, get and    *
+ *              set sensor register data. Ths file belongs to   *
+ *              the pi-bno055 package. Functions are called     *
+ *              from getbno055.c, globals are in getbno055.h.   *
+ *                                                              *
+ * Requires:	I2C development packages i2c-tools libi2c-dev   *
+ *                                                              *
+ * author:      07/14/2018 Frank4DD                             *
+ * ------------------------------------------------------------ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <linux/i2c-dev.h>
@@ -7,7 +19,7 @@
 #include "i2c_multiplexer.h"
 
 /* ------------------------------------------------------------ *
- * get_i2cbus_multiplexer() - Enables the I2C bus communication. Raspberry  *
+ * get_i2cbus() - Enables the I2C bus communication. Raspberry  *
  * Pi 2 uses i2c-1, RPI 1 used i2c-0, NanoPi also uses i2c-0.   *
  * ------------------------------------------------------------ */
 void get_i2cbus_multiplexer(char *i2cbus, char *i2caddr) {
@@ -18,7 +30,7 @@ void get_i2cbus_multiplexer(char *i2cbus, char *i2caddr) {
    }
    if(verbose_ == 1) printf("Debug: I2C bus device: [%s]\n", i2cbus);
    /* --------------------------------------------------------- *
-    * Set I2C device (multiplexer I2C address is  0x70)      *
+    * Set I2C device (BNO055 I2C address is  0x28 or 0x29)      *
     * --------------------------------------------------------- */
    int addr = (int)strtol(i2caddr, NULL, 16);
    if(verbose_ == 1) printf("Debug: Sensor address: [0x%02X]\n", addr);
