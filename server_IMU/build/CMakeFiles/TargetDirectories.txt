@@ -1,4 +1,0 @@
-/home/stashako/cpp_test/Pipe_Crawler_IMU_simulation/server_IMU/build/CMakeFiles/rebuild_cache.dir
-/home/stashako/cpp_test/Pipe_Crawler_IMU_simulation/server_IMU/build/CMakeFiles/edit_cache.dir
-/home/stashako/cpp_test/Pipe_Crawler_IMU_simulation/server_IMU/build/CMakeFiles/main.dir
-/home/stashako/cpp_test/Pipe_Crawler_IMU_simulation/server_IMU/build/CMakeFiles/serverlib.dir

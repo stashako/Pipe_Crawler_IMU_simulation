@@ -1,2 +1,0 @@
-/usr/bin/ar qc libserverlib.a  CMakeFiles/serverlib.dir/lib/IMU_server.cpp.o
-/usr/bin/ranlib libserverlib.a
