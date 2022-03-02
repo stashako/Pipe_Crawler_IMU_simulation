@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../lib/include/IMU_server.h
+iostream
+-
+boost/asio.hpp
+-
+boost/bind.hpp
+-
+boost/enable_shared_from_this.hpp
+-
+memory
+-
+vector
+-
+
+/home/stashako/cpp_test/Pipe_Crawler_IMU_simulation/server_IMU/main.cpp
+IMU_server.h
+/home/stashako/cpp_test/Pipe_Crawler_IMU_simulation/server_IMU/IMU_server.h
+
